@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "588653908341",
+    "project_id": "bcommerce-5bef9",
+    "storage_bucket": "bcommerce-5bef9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588653908341:android:a70baa85fe6e08fb83c33c",
+        "android_client_info": {
+          "package_name": "com.example.bcommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588653908341-iqovpqm9q3ep1plng8jnjscqraaisf4g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bcommerce",
+            "certificate_hash": "508089f25c143d90407ba7086049c120f449da21"
+          }
+        },
+        {
+          "client_id": "588653908341-8866n07qntsedpolm9ffaoigh430laad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByfDjQ-V-q7th8Zb-5a3jxuyT2FMEsqw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588653908341-8866n07qntsedpolm9ffaoigh430laad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
