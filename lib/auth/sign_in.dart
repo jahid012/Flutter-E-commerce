@@ -1,4 +1,5 @@
 import 'package:bcommerce/auth/google_sign_in.dart';
+import 'package:bcommerce/config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -48,11 +49,11 @@ class _SignInState extends State<SignIn> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text("Sign In to continue"),
-                        const Text(
+                        Text(
                           'Vegi',
                           style: TextStyle(
                               fontSize: 50,
-                              color: Colors.white,
+                              color: text2Color,
                               shadows: [
                                 BoxShadow(
                                     spreadRadius: 19,
