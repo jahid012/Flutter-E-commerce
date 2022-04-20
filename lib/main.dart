@@ -14,10 +14,11 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-      create: (context) => GoogleSignInProvider(),
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: SignIn(),
-      ));
+  Widget build(BuildContext context) =>
+      ChangeNotifierProvider<GoogleSignInProvider>(
+          create: (BuildContext context) => GoogleSignInProvider(),
+          child: const MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: SignIn(),
+          ));
 }

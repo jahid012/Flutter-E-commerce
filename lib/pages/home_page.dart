@@ -1,40 +1,29 @@
 import 'package:bcommerce/config.dart';
+import 'package:bcommerce/models/product_model.dart';
 import 'package:bcommerce/pages/cart_page.dart';
 import 'package:bcommerce/pages/product_details.dart';
 import 'package:bcommerce/widgets/drawer_widget.dart';
 import 'package:bcommerce/widgets/product_card_widget.dart';
+import 'package:bcommerce/widgets/section_title.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'search_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  Widget _buildTitles(String? categoryTitle) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            categoryTitle!,
-            style: TextStyle(fontSize: 15),
-          ),
-          const Text(
-            "View all",
-            style: TextStyle(color: Colors.grey, fontSize: 15),
-          )
-        ],
-      ),
-    );
-  }
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
 
+class _HomePageState extends State<HomePage> {
   Widget _buildCategory(context) {
     return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
+        scrollDirection: Axis.horizontal,
+        child: Row(children: [
           ProductCard(
             productName: "FreshBasil",
             productImage:
@@ -51,46 +40,11 @@ class HomePage extends StatelessWidget {
                       ))));
             },
           ),
-          ProductCard(
-            productName: "Fresh Basil",
-            productImage:
-                "https://pngimg.com/uploads/cabbage/cabbage_PNG8804.png",
-            pricePerUnit: "50\$/50Gram",
-            unitQuantity: "50 Gm",
-            quantiry: "1",
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: ((context) => ProductDetails(
-                        productName: "FreshBasil",
-                        productImage:
-                            "https://pngimg.com/uploads/cabbage/cabbage_PNG8804.png",
-                      ))));
-            },
-          ),
-          ProductCard(
-            productName: "Fresh Basil",
-            productImage:
-                "https://pngimg.com/uploads/cabbage/cabbage_PNG8804.png",
-            pricePerUnit: "50\$/50Gram",
-            unitQuantity: "50 Gm",
-            quantiry: "1",
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: ((context) => ProductDetails(
-                        productName: "FreshBasil",
-                        productImage:
-                            "https://pngimg.com/uploads/cabbage/cabbage_PNG8804.png",
-                      ))));
-            },
-          ),
-        ],
-      ),
-    );
+        ]));
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
         backgroundColor: bgColor,
         appBar: AppBar(
@@ -210,9 +164,9 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              _buildTitles("Herbs Sessionings"),
+              buildTitles("Herbs Sessionings"),
               _buildCategory(context),
-              _buildTitles("Fresh Fruits"),
+              buildTitles("Fresh Fruits"),
               _buildCategory(context),
             ],
           ),

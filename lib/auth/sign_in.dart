@@ -1,5 +1,7 @@
 import 'package:bcommerce/auth/google_sign_in.dart';
 import 'package:bcommerce/config.dart';
+import 'package:bcommerce/pages/home-two.dart';
+import 'package:bcommerce/pages/test_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -26,7 +28,7 @@ class _SignInState extends State<SignIn> {
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData) {
-            return const HomePage();
+            return HomeTwo();
           } else if (snapshot.hasError) {
             return const Center(
               child: Text("Something Worng!"),
