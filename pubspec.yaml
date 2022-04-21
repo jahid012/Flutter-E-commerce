@@ -30,13 +30,11 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_signin_button: ^2.0.0
   firebase_auth: ^3.3.14
   google_sign_in: ^5.3.0
   cloud_firestore: ^3.1.12
-  provider: ^5.0.0
-  carousel_slider: ^4.0.0
   dots_indicator: ^2.1.0
+  get: ^4.6.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 
@@ -65,8 +63,18 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
-
+    - assets/image/
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/font/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/font/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/font/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/font/Roboto-Black.ttf
+          weight: 900
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
