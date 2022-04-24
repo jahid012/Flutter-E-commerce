@@ -1,5 +1,6 @@
-import 'package:bcommerce/home/food_page_body.dart';
+import 'package:bcommerce/pages/home/food_page_body.dart';
 import 'package:bcommerce/utils/colors.dart';
+import 'package:bcommerce/utils/dimentions.dart';
 import 'package:bcommerce/widgets/big_text.dart';
 import 'package:bcommerce/widgets/small_text.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,6 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
-    print("current height is" + MediaQuery.of(context).size.height.toString());
     return Scaffold(
       body: Column(
         children: [
@@ -22,10 +22,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
           Container(
             child: Container(
               margin: EdgeInsets.only(
-                top: 45,
-                bottom: 15,
+                top: Dimentions.height45,
+                bottom: Dimentions.height15,
               ),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.only(
+                  left: Dimentions.width20, right: Dimentions.width20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -48,14 +49,16 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ),
                   Center(
                     child: Container(
-                      width: 45,
-                      height: 45,
+                      width: Dimentions.width45,
+                      height: Dimentions.height45,
                       child: Icon(
                         Icons.search_outlined,
                         color: Colors.white,
+                        size: Dimentions.icon24,
                       ),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius:
+                              BorderRadius.circular(Dimentions.radious15),
                           color: AppColors.mainColor),
                     ),
                   )
@@ -63,7 +66,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ),
             ),
           ),
-          FoodPageBody(),
+          Expanded(child: SingleChildScrollView(child: FoodPageBody())),
         ],
       ),
     );

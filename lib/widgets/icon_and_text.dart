@@ -1,3 +1,4 @@
+import 'package:bcommerce/utils/dimentions.dart';
 import 'package:bcommerce/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
@@ -19,9 +20,10 @@ class IconAndText extends StatelessWidget {
         Icon(
           icon,
           color: iconColor,
+          size: Dimentions.icon24,
         ),
         SizedBox(
-          width: 5,
+          width: Dimentions.width5,
         ),
         SmallText(
           text: text,
