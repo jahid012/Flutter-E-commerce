@@ -1,8 +1,6 @@
 import 'package:bcommerce/controllers/popular_product_controller.dart';
 import 'package:bcommerce/controllers/recommended_product_controller.dart';
 import 'package:bcommerce/helper/dependencies.dart' as dep;
-import 'package:bcommerce/pages/food/popular_food_detail.dart';
-import 'package:bcommerce/pages/food/recommended_food_detail.dart';
 import 'package:bcommerce/pages/home/main_food_page.dart';
 import 'package:bcommerce/routes/routes_helper.dart';
 import 'package:flutter/material.dart';

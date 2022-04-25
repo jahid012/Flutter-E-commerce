@@ -1,4 +1,6 @@
+import 'package:bcommerce/controllers/recommended_product_controller.dart';
 import 'package:bcommerce/routes/routes_helper.dart';
+import 'package:bcommerce/utils/app_constants.dart';
 import 'package:bcommerce/utils/colors.dart';
 import 'package:bcommerce/utils/dimentions.dart';
 import 'package:bcommerce/widgets/app_icon.dart';
@@ -8,10 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({Key? key}) : super(key: key);
+  int pageId;
+  RecommendedFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product =
+        Get.find<RecommendedProductController>().recommendedProductList[pageId];
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -29,7 +35,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   width: double.maxFinite,
                   child: Center(
                       child: BigText(
-                    text: "Chinese Side",
+                    text: product.name!,
                     size: Dimentions.font26,
                   ))),
             ),
@@ -37,11 +43,9 @@ class RecommendedFoodDetail extends StatelessWidget {
             pinned: true,
             backgroundColor: AppColors.yellowColor,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                "assets/image/food0.png",
-                width: double.maxFinite,
-                fit: BoxFit.cover,
-              ),
+              background: Image.network(AppConstants.BASE_URL +
+                  AppConstants.UPLOAD_URL +
+                  product.img!),
             ),
             toolbarHeight: 80,
             title: Row(
@@ -63,9 +67,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  child: ExpandableText(
-                      text:
-                          "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available."),
+                  child: ExpandableText(text: product.description!),
                 ),
               ],
             ),
@@ -92,7 +94,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   iconColor: Colors.white,
                 ),
                 BigText(
-                  text: "\$12.88 " + " X " + " 0",
+                  text: "\$${product.price!} " + " X " + " 0",
                   color: AppColors.mainBlackColor,
                   size: Dimentions.font26,
                 ),
@@ -137,7 +139,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                       borderRadius: BorderRadius.circular(Dimentions.radious20),
                       color: AppColors.mainColor),
                   child: BigText(
-                    text: "\$50 | Add to Cart",
+                    text: "\$${product.price!}|Add to Cart",
                     color: Colors.white,
                   ),
                 )
